@@ -1,0 +1,8 @@
+.text-center.mb-4 {
+    display: block;
+    margin: auto;
+}.react-datepicker-wrapper {
+    width: 100% !important;
+}.react-datepicker__input-container {
+    width: 100% !important;
+}
