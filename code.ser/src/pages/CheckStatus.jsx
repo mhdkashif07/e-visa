@@ -134,7 +134,7 @@ const CheckStatus = () => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <div className="form-group">
-                  <label className="form-label">Name:</label>
+                  <label className="form-label">Name s:</label>
                   <input
                     type="text"
                     className="form-control"
