@@ -134,11 +134,11 @@ const CheckStatus = () => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <div className="form-group">
-                  <label className="form-label">Country:</label>
+                  <label className="form-label">Name:</label>
                   <input
                     type="text"
                     className="form-control"
-                    value={applicationData.country}
+                    value={applicationData.firstName}
                     readOnly
                   />
                 </div>
