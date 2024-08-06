@@ -55,7 +55,11 @@ const CheckStatus = () => {
   };
 
   console.log(applicationData);
-  
+  const periodOfStayDays = Math.ceil(
+    (new Date(applicationData?.planDateOfExit) -
+      new Date(applicationData?.planDateOfEntry)) /
+      (1000 * 60 * 60 * 24)
+  );
 
   return (
     <div className="container" style={{ width: "90%" }}>
@@ -120,21 +124,21 @@ const CheckStatus = () => {
           </h4>
 
           <div className="formContainer">
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
+            <Grid container spacing={2}  style={{ display: "flex", justifyContent: "space-between" }}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Visa application sataus:</label>
                   <input
                     type="text"
                     className="form-control"
-                    value={'SUMBITTED'}
+                    value={"SUMBITTED"}
                     readOnly
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
-                  <label className="form-label">Name s:</label>
+                  <label className="form-label">Name:</label>
                   <input
                     type="text"
                     className="form-control"
@@ -143,20 +147,22 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
-                  <label className="form-label">First Name:</label>
+                  <label className="form-label">
+                    Date of your application status is:
+                  </label>
                   <input
                     type="text"
                     className="form-control"
-                    value={applicationData.firstName}
+                    value={applicationData.dateOfVisa}
                     readOnly
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
-                  <label className="form-label">Last Name:</label>
+                  <label className="form-label">Surname:</label>
                   <input
                     type="text"
                     className="form-control"
@@ -165,22 +171,78 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
-                  <label className="form-label">Date of Birth:</label>
+                  <label className="form-label">Reference number:</label>
                   <input
                     type="text"
                     className="form-control"
-                    value={new Date(
-                      applicationData.dateOfBirth
-                    ).toLocaleDateString()}
+                    value={applicationData.trackingId}
                     readOnly
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
-                  <label className="form-label">Passport Number:</label>
+                  <label className="form-label">Birth Date:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={new Date(applicationData.dateOfBirth)
+                      .toLocaleDateString("en-GB")
+                      .replace(/\//g, "-")}
+                    readOnly
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} md={5.5}>
+                <div className="form-group">
+                  <label className="form-label">Passport country:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={applicationData.country}
+                    readOnly
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} md={5.5}>
+                <div className="form-group">
+                  <label className="form-label">Visa type:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={applicationData.visaType}
+                    readOnly
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} md={5.5}>
+                <div className="form-group">
+                  <label className="form-label">Passport type:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={applicationData.passportType}
+                    readOnly
+                  />
+                </div>
+              </Grid>
+
+              <Grid item xs={12} md={5.5}>
+                <div className="form-group">
+                  <label className="form-label">Visa duration:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={periodOfStayDays}
+                    readOnly
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} md={5.5}>
+                <div className="form-group">
+                  <label className="form-label">Passport number:</label>
                   <input
                     type="text"
                     className="form-control"
@@ -189,98 +251,52 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
-                  <label className="form-label">Passport Issue Date:</label>
+                  <label className="form-label">Entry times:</label>
                   <input
                     type="text"
                     className="form-control"
-                    value={new Date(
-                      applicationData.passportIssueDate
-                    ).toLocaleDateString()}
+                    value={"SINGLE ENTRY"}
                     readOnly
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
-                  <label className="form-label">Passport Expiry Date:</label>
+                  <label className="form-label">Issue date of passport:</label>
                   <input
                     type="text"
                     className="form-control"
-                    value={new Date(
-                      applicationData.passportExpiryDate
-                    ).toLocaleDateString()}
+                    value={applicationData.passportIssueDate}
                     readOnly
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={5.5}>
                 <div className="form-group">
-                  <label className="form-label">Gender:</label>
+                  <label className="form-label">Visa validity period:</label>
                   <input
                     type="text"
                     className="form-control"
-                    value={applicationData.gender}
-                    readOnly
-                  />
-                </div>
-              </Grid>
-
-              <Grid item xs={12} md={6}>
-                <div className="form-group">
-                  <label className="form-label">Email:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={applicationData.email}
-                    readOnly
-                  />
-                </div>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <div className="form-group">
-                  <label className="form-label">Purpose of Visit:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={applicationData.purposeOfVisit}
-                    readOnly
-                  />
-                </div>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <div className="form-group">
-                  <label className="form-label">Plan Date of Entry:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={new Date(
-                      applicationData.planDateOfEntry
-                    ).toLocaleDateString()}
-                    readOnly
-                  />
-                </div>
-              </Grid>
-              <Grid item xs={12}>
-                <div className="form-group">
-                  <p style={{ color: "#fff", mb: "0px !important" }}>
-                    Plan Date of Exit:
-                  </p>
-                  <input
-                    style={{
-                      height: "6vh",
-                      width: "100%",
-                      borderRadius: "6px",
-                      backgroundColor: "#333",
-                      color: "#fff",
-                      border: "1px solid #fff",
-                    }}
-                    type="text"
-                    className="formControlLast"
-                    value={new Date(
+                    value={`${new Date(applicationData.planDateOfEntry)
+                      .toLocaleDateString("en-GB")
+                      .replace(/\//g, "-")} - ${new Date(
                       applicationData.planDateOfExit
-                    ).toLocaleDateString()}
+                    )
+                      .toLocaleDateString("en-GB")
+                      .replace(/\//g, "-")}`}
+                    readOnly
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} md={5.5}>
+                <div className="form-group">
+                  <label className="form-label">Issue date of passport:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={applicationData.passportExpiryDate}
                     readOnly
                   />
                 </div>
@@ -290,11 +306,11 @@ const CheckStatus = () => {
 
           {/* Button to print */}
           <div className="text-center mt-5">
-            <button className="btn btn-secondary me-5" onClick={handlePrint}>
+            <button className="btn btn-secondary me-5 print-btn" onClick={handlePrint}>
               Print
             </button>
             <button
-              className="btn btn-secondary"
+              className="btn btn-secondary print-btn"
               onClick={handlePreview}
               disabled
             >

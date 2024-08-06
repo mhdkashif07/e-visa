@@ -1,26 +1,25 @@
 body {
-    margin: 0;
-    padding: 0;
-  
-      background-image: url('../src/assets/images/body.png');
-      /* background-size: cover; */
-      /* background-position: center; */
-      /* background-repeat: no-repeat; */
-      height: 100vh;
-      /* display: flex;
+  margin: 0;
+  padding: 0;
+
+  background-image: url("../src/assets/images/body.png");
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  height: 100vh;
+  /* display: flex;
       justify-content: center;
       align-items: center; */
-  }
+}
 
+/* Navbar.css */
 
-  /* Navbar.css */
-
-  .navbar-nav .nav-link {
-    color: #ffffff !important; /* White text color for menu items */
-  }
-  .olo{
-    color: #ffffff;
-  }
+.navbar-nav .nav-link {
+  color: #ffffff !important; /* White text color for menu items */
+}
+.olo {
+  color: #ffffff;
+}
 
 /* HeroSection.css */
 
@@ -38,15 +37,12 @@ body {
   transition: transform 0.5s ease; /* Smooth transition for sliding effect */
 }
 
-
-
-
 .step-circle {
   width: 30px;
   height: 30px;
   color: #dee2e6;
   border-radius: 50%;
-  background-color: #191C23; /* default circle background */
+  background-color: #191c23; /* default circle background */
   border: 1px solid #dee2e6; /* default border color */
   display: flex;
   justify-content: center;
@@ -55,9 +51,9 @@ body {
 }
 
 .step-circle.active {
-  background-color: #09B169; /* active circle background color */
+  background-color: #09b169; /* active circle background color */
   color: #fff; /* active circle text color */
-  border-color: #09B169; /* active border color */
+  border-color: #09b169; /* active border color */
 }
 
 .step-line {
@@ -70,24 +66,26 @@ body {
   z-index: -1; /* move line behind circles */
 }
 
+.application-status .form-control {
+  background-color: #c2c2c2 !important;
+  color: #30333a !important;
+}
 
-
-
-.form-control{
+.form-control {
   /* padding-right: 454px !important; */
   background-color: #30333a !important;
   color: white !important;
   ::placeholder {
     color: rgb(245, 25, 25) !important; /* Placeholder text color */
-}
+  }
 }
 
-.form-label{
+.form-label {
   color: white;
 }
 
 .contact-us-container {
-  background-image: url('./assets/images/sarer.jpg');
+  background-image: url("./assets/images/sarer.jpg");
   background-size: cover;
   background-position: center;
   min-height: 80vh;
@@ -97,18 +95,16 @@ body {
 }
 
 .form-container {
-  
   /* padding: 20px; */
 
   width: 100%;
   max-width: 600px;
 }
 
-
 .link-custom {
   color: white;
   font-size: 20px;
-  font-weight:500;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -122,12 +118,24 @@ body {
   opacity: 1; /* Override the default opacity */
 }
 
-.react-datepicker__input-container{
+.react-datepicker__input-container {
   width: 270% !important;
 }
 
-.nw{
+.nw {
   font-size: 21px;
-    font-weight: 400;
+  font-weight: 400;
+}
 
+.print-btn {
+  border: 2px solid green !important;
+  color: green !important;
+  background-color: #191c23 !important;
+  width: 130px !important;
+  font-weight: 500 !important;
+  box-shadow: 
+    /* 0 2px 4px rgba(21, 43, 36, 0.4),  Darker shadow */ 0 4px
+    8px rgb(32, 85, 68, 2); /* Medium shadow */
+  /* 0 8px 16px rgba(21, 43, 36, 0.2), Lighter shadow */
+  /* 0 16px 32px rgba(21, 43, 36, 0.1);   */
 }

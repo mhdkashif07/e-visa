@@ -280,13 +280,6 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
           Період перебування (дні) / Period of stay(days):
         </div>{" "}
         <div>
-          {/* {new Date(applicationData.planDateOfEntry)
-            .toLocaleDateString("en-GB")
-            .replace(/\//g, "-")}{" "}
-          -{" "}
-          {new Date(applicationData.planDateOfExit)
-            .toLocaleDateString("en-GB")
-            .replace(/\//g, "-")}{" "} */}
           {periodOfStayDays}
         </div>
       </div>
