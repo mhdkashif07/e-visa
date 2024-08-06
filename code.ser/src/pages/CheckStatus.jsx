@@ -119,9 +119,9 @@ const CheckStatus = () => {
           {/* <dev>
             <img src={applicationData.photo} alt="" width={"50px"}  height={"50%"}/>
           </dev> */}
-          <h4 style={{ color: "#fff" }} className="title text-center">
+          <h1 style={{ color: "#fff", textTransform: "uppercase", fontSize: "3.8rem"}} className="title text-center">
             Application Status
-          </h4>
+          </h1>
 
           <div className="formContainer">
             <Grid container spacing={2}  style={{ display: "flex", justifyContent: "space-between" }}>

@@ -69,6 +69,7 @@ body {
 .application-status .form-control {
   background-color: #c2c2c2 !important;
   color: #30333a !important;
+  text-transform: uppercase;
 }
 
 .form-control {
@@ -133,9 +134,6 @@ body {
   background-color: #191c23 !important;
   width: 130px !important;
   font-weight: 500 !important;
-  box-shadow: 
-    /* 0 2px 4px rgba(21, 43, 36, 0.4),  Darker shadow */ 0 4px
-    8px rgb(32, 85, 68, 2); /* Medium shadow */
-  /* 0 8px 16px rgba(21, 43, 36, 0.2), Lighter shadow */
-  /* 0 16px 32px rgba(21, 43, 36, 0.1);   */
+  box-shadow: 0 4px 8px rgb(32, 85, 68, 2); 
+  text-transform: uppercase;
 }
