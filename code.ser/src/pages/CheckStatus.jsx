@@ -54,6 +54,9 @@ const CheckStatus = () => {
     alert("Preview functionality not implemented");
   };
 
+  console.log(applicationData);
+  
+
   return (
     <div className="container" style={{ width: "90%" }}>
       <h6 className="text-center mb-2 mt-5" style={{ color: "white" }}>
@@ -120,11 +123,11 @@ const CheckStatus = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <div className="form-group">
-                  <label className="form-label">Application ID:</label>
+                  <label className="form-label">Visa application sataus:</label>
                   <input
                     type="text"
                     className="form-control"
-                    value={applicationData.trackingId}
+                    value={'SUMBITTED'}
                     readOnly
                   />
                 </div>
