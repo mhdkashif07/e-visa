@@ -7,7 +7,6 @@ import QR from "../assets/images/images.png";
 
 // eslint-disable-next-line react/display-name
 const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
-  console.log(applicationData);
   const periodOfStayDays = Math.ceil(
     (new Date(applicationData.planDateOfExit) -
       new Date(applicationData.planDateOfEntry)) /
@@ -279,9 +278,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         <div style={{ width: "70%", textAlign: "start" }}>
           Період перебування (дні) / Period of stay(days):
         </div>{" "}
-        <div>
-          {periodOfStayDays}
-        </div>
+        <div>{periodOfStayDays}</div>
       </div>
       <div
         style={{

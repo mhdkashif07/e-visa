@@ -21,10 +21,7 @@ const StepBar = () => {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [image, setImage] = useState(null);
-  console.log("image", image);
   const [formData, setFormData] = useState({});
-
-  console.log("formData", formData);
 
   const handleNext = () => {
     if (step < 6) {
@@ -98,7 +95,6 @@ const StepBar = () => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    console.log("formData", formData);
     try {
       // Create a FormData object
       const formDataToSend = new FormData();
@@ -131,9 +127,9 @@ const StepBar = () => {
       formDataToSend.append("dateOfVisa", formattedDateTime);
 
       // Log the FormData content
-      for (let [key, value] of formDataToSend.entries()) {
-        console.log(key, value);
-      }
+      // for (let [key, value] of formDataToSend.entries()) {
+      //   console.log(key, value);
+      // }
 
       const response = await axios.post(
         "https://e-visa-project.vercel.app/api/visa/new/application",
@@ -147,7 +143,6 @@ const StepBar = () => {
       );
 
       if (response.status === 200) {
-        console.log("Form submitted successfully");
         // Reset the form data if needed
         toast.success("Form submitted successfully!", {
           position: "bottom-right",

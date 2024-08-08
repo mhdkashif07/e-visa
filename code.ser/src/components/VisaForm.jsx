@@ -21,8 +21,6 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
     setFormData({ ...formData, [id]: file });
   };
 
-  console.log(formData);
-
   const renderFormFields = () => {
     switch (step) {
       case 1:

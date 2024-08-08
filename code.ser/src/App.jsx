@@ -13,6 +13,7 @@ import CheckStatus from "./pages/CheckStatus";
 import Footer from "./components/Footer";
 import ApplicationDetailsPage from "./pages/ApplicationDetailsPage";
 import AboutUs from "./pages/AboutUs";
+// import NewCheckStatus from "./pages/NewCheckStatus";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           <Route exact path="/registration" element={<Registration />} />
           <Route exact path="/forgot-password" element={<ForgotPassword />} />
           <Route exact path="/checkstatus" element={<CheckStatus />} />
+          {/* <Route exact path="/checkstatus" element={<NewCheckStatus />} /> */}
+
           <Route exact path="/aboutus" element={<AboutUs />} />
           <Route
             path="/application-details"
