@@ -957,6 +957,12 @@ label[for="yes_past_visit"] {
   background-color: #098e55;
 }
 
+.captcha-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .informBox_5566 {
   width: 832px;
   padding: 5px 26px;

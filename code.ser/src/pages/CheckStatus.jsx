@@ -6,6 +6,38 @@ import PrintableDocument from "./PrintableComponent"; // Ensure correct import
 import "./checkStatus.css";
 import { Grid } from "@mui/material";
 import { toast } from "react-toastify";
+// import captchaImgSrc from "../assets/images/captcha/vasplusCaptcha00a0.jpg";
+import refreshIcon from "../assets/images/refresh_icon.png";
+
+// const captchaCodes = ["00a0", "1d85", "4e50", "5aa1", "5abf"];
+
+const captchaImagesCodes = [
+  { id: "00a0", text: "whcxfn" },
+  { id: "1d85", text: "tdnjx8" },
+  { id: "4e50", text: "25kg2k" },
+  { id: "5aa1", text: "w7sv6q" },
+  { id: "5abf", text: "3hcv4s" },
+  { id: "6faf", text: "rrzb95" },
+  { id: "24bb", text: "n2w8wq" },
+  { id: "47c6", text: "qdhfxf" },
+  { id: "52c3", text: "rwjw3j" },
+  { id: "54f1", text: "23brdd" },
+  { id: "93af", text: "r2f66h" },
+  { id: "0356", text: "y9d6pt" },
+  { id: "531b", text: "jrk4s5" },
+  { id: "2573", text: "ypnk5q" },
+  { id: "3791", text: "hdhmvm" },
+  { id: "a3e6", text: "544gwk" },
+  { id: "a318", text: "3v8x73" },
+  { id: "a804", text: "s2ntmn" },
+  { id: "c2bd", text: "g3hx9k" },
+  { id: "d214", text: "bgxhxc" },
+  { id: "f46e", text: "fkf7x3" },
+  { id: "ffc0", text: "53nj35" },
+];
+
+// Generate captchaCodes from captchaImagesCodes
+const captchaCodes = captchaImagesCodes.map((captcha) => captcha.id);
 
 const CheckStatus = () => {
   const {
@@ -22,73 +54,123 @@ const CheckStatus = () => {
   const [verificationCodeInput, setVerificationCodeInput] = useState("");
   const [trackingId, setTrackingId] = useState("");
 
+  const [captchaCode, setCaptchaCode] = useState("");
+  const [userInput, setUserInput] = useState("");
+  const [currentCaptcha, setCurrentCaptcha] = useState(generateCaptcha());
+
   console.log(trackingId);
 
   const [showForm, setShowForm] = useState(true); // State to toggle form visibility
   const componentRef = useRef(); // Reference for the component to be printed
 
+  // Function to generate a random captcha
+  function generateCaptcha() {
+    const randomIndex = Math.floor(Math.random() * captchaCodes?.length);
+    return captchaImagesCodes.find(
+      (captcha) => captcha.id === captchaCodes[randomIndex]
+    );
+  }
+
+  // Function to refresh captcha
+  const refreshCaptcha = () => {
+    setCurrentCaptcha(generateCaptcha());
+    setUserInput("");
+  };
+
+  // Function to handle user input change
+  const handleCaptchaCodeChange = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  // Function to validate captcha
+  const validateCaptcha = () => {
+    if (userInput === currentCaptcha.text) {
+      alert("Captcha is correct!");
+    } else {
+      alert("Captcha is incorrect. Please try again.");
+      refreshCaptcha(); // Optionally refresh captcha on incorrect attempt
+    }
+  };
   //check the tracking id
   const onSubmit = async (formData) => {
     setIsSubmitting(true);
-    try {
-      const response = await axios.post(
-        "https://e-visa-project.vercel.app/api/visa/check/application/status",
-        {
-          trackingId: formData.referenceNumber,
+    // validateCaptcha();
+    if (userInput === currentCaptcha.text) {
+      try {
+        const response = await axios.post(
+          "https://e-visa-project.vercel.app/api/visa/check/application/status",
+          {
+            trackingId: formData.referenceNumber,
+          }
+        );
+        console.log(".............data", response);
+        setApplicationData(response.data.data.applicationData); // Store data received from backend
+        if (response.data.data.status === "success") {
+          setShowForm(false);
+          setShowVerificationCodeForm(true);
+          setTrackingId(response.data.data.trackingId);
+          toast.success(response.data.data.message, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // transition: Bounce,
+          });
         }
-      );
-      console.log(".............data", response);
-      setApplicationData(response.data.data.applicationData); // Store data received from backend
-      if (response.data.data.status === "success") {
-        setShowForm(false);
-        setShowVerificationCodeForm(true);
-        setTrackingId(response.data.data.trackingId);
-        toast.success(response.data.data.message, {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          // transition: Bounce,
-        });
+      } catch (error) {
+        console.log("Error fetching data:", error);
+        if (
+          error.response.data.error.name === "Verification Code already Exists"
+        ) {
+          setShowForm(false);
+          setShowVerificationCodeForm(true);
+          toast.success("Verification Code already sended to your email.", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // transition: Bounce,
+          });
+        } else {
+          toast.error(error.response.data.error.message, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            // transition: Bounce,
+          });
+        }
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch (error) {
-      console.log("Error fetching data:", error);
-      if (
-        error.response.data.error.name === "Verification Code already Exists"
-      ) {
-        setShowForm(false);
-        setShowVerificationCodeForm(true);
-        toast.success("Verification Code already sended to your email.", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          // transition: Bounce,
-        });
-      } else {
-        toast.error(error.response.data.error.message, {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          // transition: Bounce,
-        });
-      }
-    } finally {
+    } else {
+      toast.error("Captcha is incorrect!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
       setIsSubmitting(false);
+      refreshCaptcha(); // Optionally refresh captcha on incorrect attempt
     }
+
     reset(); // Optionally reset the form after submission
   };
 
@@ -275,6 +357,30 @@ const CheckStatus = () => {
               {errors.referenceNumber && (
                 <p className="text-danger">{errors.referenceNumber.message}</p>
               )}
+            </div>
+            <div>
+              <div className="captcha-container mb-3">
+                <img
+                  src={`./captcha/vasplusCaptcha${currentCaptcha.id}.jpg`}
+                  id="captchaimg"
+                  alt="Captcha"
+                />
+                <img
+                  src={refreshIcon}
+                  onClick={refreshCaptcha}
+                  className="refreshIcon"
+                  style={{ marginLeft: "10px" }}
+                  alt="Refresh Captcha"
+                />
+                <input
+                  type="text"
+                  value={userInput}
+                  onChange={handleCaptchaCodeChange}
+                  id="vpb_captcha_code"
+                  name="vpb_captcha_code"
+                  required
+                />
+              </div>
             </div>
             <div className="text-center">
               <button
