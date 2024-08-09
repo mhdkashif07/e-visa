@@ -482,7 +482,7 @@ const CheckStatus = () => {
                   <input
                     type="text"
                     className="form-control"
-                    value={"SUMBITTED"}
+                    value={"CONFIRMED"}
                     readOnly
                   />
                 </div>
