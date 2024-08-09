@@ -8,6 +8,10 @@ const ContactUs = () => {
     formState: { errors },
   } = useForm();
 
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="contact-us-container">
       <div className="form-container">

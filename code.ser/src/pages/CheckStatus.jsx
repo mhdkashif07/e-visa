@@ -221,115 +221,129 @@ const CheckStatus = () => {
 
   return (
     <div className="container" style={{ width: "90%" }}>
-      <h6 className="text-center mb-2 mt-5" style={{ color: "white" }}>
-        Information Box
-      </h6>
-      <p className="mb-5" style={{ color: "white" }}>
-        {!showVerificationCodeForm ? (
-          <>
-            In order to check the status of your application or continue an
-            unfinished application, please enter your application reference
-            number in the relevant box. If you do not know this number, you can
-            find it in the e-mail message that we sent to you. It is an 8-symbol
-            alphanumeric code.
-          </>
-        ) : (
-          <>
-            In order to verify your application status, please enter the
-            verification code that we have sent to your email. The code is a
-            6-digit numeric value. If you did not receive the code, please check
-            your spam folder or request a new code.
-          </>
-        )}
-      </p>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div className="informBox_5566">
+          <h5 className="mb-1 mt-3" style={{ color: "white" }}>
+            Information Box
+          </h5>
+          <p className="mb-4" style={{ color: "white" }}>
+            {!showVerificationCodeForm ? (
+              <>
+                In order to check the status of your application or continue an
+                unfinished application, please enter your application reference
+                number in the relevant box. If you do not know this number, you
+                can find it in the e-mail message that we sent to you. It is an
+                8-symbol alphanumeric code.
+              </>
+            ) : (
+              <>
+                In order to verify your application status, please enter the
+                verification code that we have sent to your email. The code is a
+                6-digit numeric value. If you did not receive the code, please
+                check your spam folder or request a new code.
+              </>
+            )}
+          </p>
+        </div>
+      </div>
 
       {/* Conditionally render the form */}
       {showForm && (
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-3">
-            <label
-              htmlFor="referenceNumber"
-              className="form-label"
-              style={{ color: "white" }}
-            >
-              Insert Your Reference Number
-            </label>
-            <input
-              id="referenceNumber"
-              type="text"
-              className="form-control"
-              // onChange={(e) => setTrackingId(e.target.value)}
-              {...register("referenceNumber", {
-                required: "Reference number is required",
-                onChange: (e) => setTrackingId(e.target.value),
-              })}
-            />
-            {errors.referenceNumber && (
-              <p className="text-danger">{errors.referenceNumber.message}</p>
-            )}
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="btn"
-              style={{
-                backgroundColor: "#09B169",
-                color: "white",
-                padding: "8px 24px",
-              }}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Submitting..." : "Submit"}
-            </button>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <div style={{ width: "50%" }}>
+            <div className="mb-3">
+              <label
+                htmlFor="referenceNumber"
+                className="form-label"
+                style={{ color: "white", marginBottom: "2px" }}
+              >
+                Insert Your Reference Number
+              </label>
+              <input
+                id="referenceNumber"
+                type="text"
+                className="form-control"
+                // onChange={(e) => setTrackingId(e.target.value)}
+                {...register("referenceNumber", {
+                  required: "Reference number is required",
+                  onChange: (e) => setTrackingId(e.target.value),
+                })}
+              />
+              {errors.referenceNumber && (
+                <p className="text-danger">{errors.referenceNumber.message}</p>
+              )}
+            </div>
+            <div className="text-center">
+              <button
+                type="submit"
+                className="btn"
+                style={{
+                  backgroundColor: "#09B169",
+                  color: "white",
+                  padding: "8px 24px",
+                }}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
+            </div>
           </div>
         </form>
       )}
 
       {/* show form for the verification code */}
       {showVerificationCodeForm && (
-        <form onSubmit={handleVerification}>
-          <div className="mb-3">
-            <label
-              htmlFor="verificationCode"
-              className="form-label"
-              style={{ color: "white" }}
-            >
-              Insert Your Verification Code
-            </label>
-            <input
-              id="verificationCode"
-              type="text"
-              className="form-control"
-              onChange={(e) => setVerificationCodeInput(e.target.value)}
-            />
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="btn"
-              style={{
-                backgroundColor: "#09B169",
-                color: "white",
-                padding: "8px 24px",
-                marginRight: "20px",
-              }}
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Submitting..." : "Submit"}
-            </button>
-            <button
-              type="submit"
-              className="btn"
-              style={{
-                backgroundColor: "#09B169",
-                color: "white",
-                padding: "8px 24px",
-              }}
-              onClick={handleResendCode}
-              disabled={isSendingCode}
-            >
-              {isSendingCode ? "Resending Code..." : "Resend Code"}
-            </button>
+        <form
+          onSubmit={handleVerification}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <div style={{ width: "50%" }}>
+            <div className="mb-3">
+              <label
+                htmlFor="verificationCode"
+                className="form-label"
+                style={{ color: "white", marginBottom: "2px" }}
+              >
+                Insert Your Verification Code
+              </label>
+              <input
+                id="verificationCode"
+                type="text"
+                className="form-control"
+                onChange={(e) => setVerificationCodeInput(e.target.value)}
+              />
+            </div>
+            <div className="text-center">
+              <button
+                type="submit"
+                className="btn"
+                style={{
+                  backgroundColor: "#09B169",
+                  color: "white",
+                  padding: "8px 24px",
+                  marginRight: "20px",
+                }}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
+              <button
+                type="submit"
+                className="btn"
+                style={{
+                  backgroundColor: "#09B169",
+                  color: "white",
+                  padding: "8px 24px",
+                }}
+                onClick={handleResendCode}
+                disabled={isSendingCode}
+              >
+                {isSendingCode ? "Resending Code..." : "Resend Code"}
+              </button>
+            </div>
           </div>
         </form>
       )}
