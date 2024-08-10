@@ -13,6 +13,8 @@ import CheckStatus from "./pages/CheckStatus";
 import Footer from "./components/Footer";
 import ApplicationDetailsPage from "./pages/ApplicationDetailsPage";
 import AboutUs from "./pages/AboutUs";
+import Information from "./pages/Information";
+import Contact from "./pages/Contact";
 // import NewCheckStatus from "./pages/NewCheckStatus";
 
 function App() {
@@ -30,6 +32,9 @@ function App() {
           {/* <Route exact path="/checkstatus" element={<NewCheckStatus />} /> */}
 
           <Route exact path="/aboutus" element={<AboutUs />} />
+          <Route exact path="/information" element={<Information />} />
+          <Route exact path="/contact" element={<Contact />} />
+
           <Route
             path="/application-details"
             element={<ApplicationDetailsPage />}

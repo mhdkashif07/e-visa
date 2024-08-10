@@ -85,12 +85,24 @@ export const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" aria-current="page" href="#">
-                    INFORMATION
+                    <Link
+                      to="/information"
+                      className="dropdown-item"
+                      href="/information"
+                    >
+                      INFORMATION
+                    </Link>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" aria-current="page" href="#">
-                    CONTACT US
+                    <Link
+                      to="/contact"
+                      className="dropdown-item"
+                      href="/contact"
+                    >
+                      CONTACT US
+                    </Link>
                   </a>
                 </li>
               </ul>
