@@ -265,7 +265,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         <div style={{ width: "70%", textAlign: "start" }}>
           Кількість конкурсних робіт / Number of entries:
         </div>{" "}
-        <div>Single</div>
+        <div>SINGLE</div>
       </div>
       <div
         style={{
