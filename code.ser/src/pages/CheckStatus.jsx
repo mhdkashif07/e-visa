@@ -563,7 +563,7 @@ const CheckStatus = () => {
                   <input
                     type="text"
                     className="form-control"
-                    value={applicationData.visaType}
+                    value={applicationData.purposeOfVisit}
                     readOnly
                   />
                 </div>
