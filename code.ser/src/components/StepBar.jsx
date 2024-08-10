@@ -94,6 +94,7 @@ const StepBar = () => {
   // };
 
   const handleSubmit = async () => {
+    const authIdToken = sessionStorage.getItem("authToken");
     setIsSubmitting(true);
     try {
       // Create a FormData object
@@ -136,7 +137,7 @@ const StepBar = () => {
         formDataToSend,
         {
           headers: {
-            Authorization: "Bearer YOUR_AUTH_TOKEN", // Replace with your actual auth token if required
+            Authorization: `Bearer ${authIdToken}`, // Replace with your actual auth token if required
             "Content-Type": "multipart/form-data",
           },
         }
@@ -158,7 +159,7 @@ const StepBar = () => {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Error submitting form", {
+      toast.error(error.response.data.error.message, {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,

@@ -1,8 +1,11 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom"; // Import Link for navigation
+import { toast } from "react-toastify";
 
 const Sigin = () => {
+  const [password, setPassword] = useState("");
   const {
     register,
     handleSubmit,
@@ -10,11 +13,62 @@ const Sigin = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // Here you can handle form submission, e.g., send data to your backend
+    console.log("login", data, password);
+
+    try {
+      const response = await axios.post(
+        "https://e-visa-project.vercel.app/api/visa/login",
+        {
+          identifier: data.username,
+          password: password,
+        },
+        {
+          headers: {
+            // Authorization: "Bearer YOUR_AUTH_TOKEN", // Replace with your actual auth token if required
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        console.log(response);
+
+        sessionStorage.setItem("authToken", response?.data?.token);
+        // Reset the form data if needed
+        toast.success("Successfully login", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          // transition: Bounce,
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error(error.response.data.error.message, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        // transition: Bounce,
+      });
+    }
+    // finally {
+    //   setIsSubmitting(false);
+    // }
 
     // Clear the form fields after submission
-    reset();
+    // reset();
   };
 
   return (
@@ -29,7 +83,7 @@ const Sigin = () => {
           </label>
           <input
             id="username"
-            type="email"
+            type="text"
             className="form-control"
             {...register("username", { required: "Username is required" })}
           />
@@ -45,11 +99,13 @@ const Sigin = () => {
             id="password"
             type="password"
             className="form-control"
-            {...register("password", { required: "Password is required" })}
+            {...register("password", {
+              onChange: (e) => setPassword(e.target.value),
+            })}
           />
-          {errors.password && (
+          {/* {errors.password && (
             <p className="text-danger">{errors.password.message}</p>
-          )}
+          )} */}
         </div>
         <div className="d-flex justify-content-between mb-3">
           <Link
