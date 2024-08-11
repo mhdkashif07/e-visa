@@ -15,6 +15,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
   return (
     <div
       ref={ref}
+      className="printable-pdf-container"
       style={{
         backgroundColor: "white",
         padding: "20px",
@@ -165,8 +166,8 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         }}
       >
         <div style={{ width: "70%", textAlign: "start" }}>
-          Жол жүрүүчү документтин (паспорттун) номери / Number of travel
-          document (Passport):
+          Жол жүрүүчү документтин (паспорттун) номери/Number of travel document
+          (Passport):
         </div>{" "}
         <div>{applicationData.passportNumber}</div>
       </div>
@@ -211,7 +212,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         }}
       >
         <div style={{ width: "70%", textAlign: "start" }}>
-          дата закінчення терміну дії проїзного документа (паспорта) / Date of
+          дата закінчення терміну дії проїзного документа (паспорта)/Date of
           expiry of the travelling document (Passport):
         </div>{" "}
         <div>
@@ -229,7 +230,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         }}
       >
         <div style={{ width: "70%", textAlign: "start" }}>
-          Тип візи / Type of visa:
+          Тип візи/Type of visa:
         </div>{" "}
         <div>{applicationData.purposeOfVisit}</div>
       </div>
@@ -242,7 +243,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         }}
       >
         <div style={{ width: "70%", textAlign: "start" }}>
-          Визанын колдонулуу мөөнөтү / Validity of Visa:
+          Визанын колдонулуу мөөнөтү/Validity of Visa:
         </div>{" "}
         <div>
           {new Date(applicationData.planDateOfEntry)
@@ -263,7 +264,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         }}
       >
         <div style={{ width: "70%", textAlign: "start" }}>
-          Кількість конкурсних робіт / Number of entries:
+          Кількість конкурсних робіт/Number of entries:
         </div>{" "}
         <div>SINGLE ENTRY</div>
       </div>
@@ -276,7 +277,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         }}
       >
         <div style={{ width: "70%", textAlign: "start" }}>
-          Період перебування (дні) / Period of stay(days):
+          Період перебування (дні)/Period of stay(days):
         </div>{" "}
         <div>{periodOfStayDays}</div>
       </div>
@@ -289,7 +290,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         }}
       >
         <div style={{ width: "70%", textAlign: "start" }}>
-          Запрошення / Invitation:
+          Запрошення/Invitation:
         </div>{" "}
         <div>{applicationData.invitation}</div>
       </div>
@@ -302,7 +303,7 @@ const PrintableDocument = React.forwardRef(({ applicationData }, ref) => {
         }}
       >
         <div style={{ width: "70%", textAlign: "start" }}>
-          Дата отримання візи / Date of visa:
+          Дата отримання візи/Date of visa:
         </div>
         <div>{applicationData.dateOfVisa}</div>
       </div>

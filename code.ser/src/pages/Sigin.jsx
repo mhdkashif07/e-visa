@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link, useNavigate } from "react-router-dom"; // Import Link for navigation
 import { toast } from "react-toastify";
 
 const Sigin = () => {
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const {
     register,
@@ -33,9 +34,8 @@ const Sigin = () => {
       );
 
       if (response.status === 200) {
-        console.log(response);
-
         sessionStorage.setItem("authToken", response?.data?.token);
+        navigate("/");
         // Reset the form data if needed
         toast.success("Successfully login", {
           position: "bottom-right",
