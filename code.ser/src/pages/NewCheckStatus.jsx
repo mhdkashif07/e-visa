@@ -38,7 +38,7 @@ const NewCheckStatus = () => {
         flexDirection: "column",
       }}
     >
-      <div className="informBox_5566">
+      {/* <div className="informBox_5566">
         <b>Information box</b>
         <br />
         In order to check the status of your application or continue an
@@ -46,7 +46,7 @@ const NewCheckStatus = () => {
         in the relevant box. If you do not know this number, you can find it in
         the e-mail message that we sent to you. It is an 8-symbol alphanumeric
         code.
-      </div>
+      </div> */}
       <br />
       <br />
 
