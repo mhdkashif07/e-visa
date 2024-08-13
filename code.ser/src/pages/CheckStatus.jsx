@@ -301,9 +301,6 @@ const CheckStatus = () => {
       (1000 * 60 * 60 * 24)
   );
 
-  console.log(applicationData);
-  
-
   return (
     <div className="container" style={{ width: "90%" }}>
       {applicationData !== null ? "" : (
