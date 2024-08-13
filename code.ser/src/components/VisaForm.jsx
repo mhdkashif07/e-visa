@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import ima from "../assets/images/images.png";
 import logoVisaForm from "../assets/images/logoTop.png";
 import "./style.css";
+import { Grid } from "@mui/material";
 
 const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
   const handleInputChange = (e) => {
@@ -613,26 +614,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
             <h5 className="text-center mb-3 mt-3" style={{ color: "white" }}>
               Review and Confirm
             </h5>
-            <div className="row" style={{ justifyContent: "center" }}>
-              <div className="col-md-5 mb-2">
-                <label style={{ color: "#fff" }}>Passport Country:</label>
-                <input
-                  id="country"
-                  className="form-control"
-                  value={formData.country}
-                  readOnly
-                />
-              </div>
-              <div className="col-md-5 mb-2">
-                <label style={{ color: "#fff" }}>Passport Type:</label>
-                <input
-                  id="passportType"
-                  className="form-control"
-                  value={formData.passportType}
-                  readOnly
-                />
-              </div>
-              <div className="col-md-5 mb-2">
+            <Grid container spacing={2} justifyContent={"center"}>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="firstName" style={{ color: "#fff" }}>
                   First Name:
                 </label>
@@ -642,8 +625,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.firstName}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="lastName" style={{ color: "#fff" }}>
                   Last Name:
                 </label>
@@ -653,8 +636,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.lastName}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="dateOfBirth" style={{ color: "#fff" }}>
                   Date of Birth:
                 </label>
@@ -668,8 +651,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   }
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="passportNumber" style={{ color: "#fff" }}>
                   Passport Number:
                 </label>
@@ -679,8 +662,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.passportNumber}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="passportIssueDate" style={{ color: "#fff" }}>
                   Passport Issue Date:
                 </label>
@@ -694,8 +677,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   }
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="passportExpiryDate" style={{ color: "#fff" }}>
                   Passport Expiry Date:
                 </label>
@@ -709,8 +692,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   }
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="gender" style={{ color: "#fff" }}>
                   Gender:
                 </label>
@@ -720,8 +703,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.gender}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="email" style={{ color: "#fff" }}>
                   Email:
                 </label>
@@ -731,8 +714,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.email}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="contactPhoneNumber" style={{ color: "#fff" }}>
                   Contact Phone Number:
                 </label>
@@ -742,8 +725,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.contactPhoneNumber}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="emailAddress" style={{ color: "#fff" }}>
                   Email Address:
                 </label>
@@ -753,8 +736,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.emailAddress}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="contactInformation" style={{ color: "#fff" }}>
                   Contact Information:
                 </label>
@@ -764,8 +747,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.contactInformation}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="placeOfStay" style={{ color: "#fff" }}>
                   Place of Stay:
                 </label>
@@ -775,8 +758,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.placeOfStay}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="purposeOfVisit" style={{ color: "#fff" }}>
                   Purpose of Visit:
                 </label>
@@ -786,8 +769,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   value={formData.purposeOfVisit}
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="planDateOfEntry" style={{ color: "#fff" }}>
                   Plan date of Entry:
                 </label>
@@ -801,8 +784,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   }
                   readOnly
                 />
-              </div>
-              <div className="col-md-5 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <label htmlFor="planDateOfExit" style={{ color: "#fff" }}>
                   Plan Date Of Exit:
                 </label>
@@ -816,11 +799,11 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                   }
                   readOnly
                 />
-              </div>
-              <div className="col-md-12 mb-2">
+              </Grid>
+              <Grid item xs={6} sm={6} md={5}>
                 <div
                   className="mb-3"
-                  style={{ width: "40%", margin: "0 auto" }}
+                  style={{ width: "100%", margin: "0 auto" }}
                 >
                   <label htmlFor="message" style={{ color: "#fff" }}>
                     Message:
@@ -832,8 +815,8 @@ const VisaForm = ({ step, isSubmitting, formData, setFormData, setImage }) => {
                     readOnly
                   />
                 </div>
-              </div>
-            </div>
+              </Grid>
+            </Grid>
           </>
         );
 

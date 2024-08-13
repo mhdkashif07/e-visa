@@ -1,10 +1,15 @@
 // Navbar.js
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const [authIdToken, setAuthIdToken] = useState("");
+  useEffect(() => {
+    const authToken = sessionStorage.getItem("authToken");
+    setAuthIdToken(authIdToken);
+  }, []);
   return (
     <>
       <div className="container">
@@ -107,9 +112,13 @@ export const Navbar = () => {
                 </li>
               </ul>
               <div className="d-flex ">
-                <Link to="/signin" className="olo">
-                  Log in to personal account
-                </Link>
+                {authIdToken !== "" ? (
+                  <Link to="/signin" className="olo">
+                    Log in to personal account
+                  </Link>
+                ) : (
+                  " "
+                )}
               </div>
             </div>
           </div>
