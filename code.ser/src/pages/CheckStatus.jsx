@@ -478,7 +478,7 @@ const CheckStatus = () => {
               spacing={2}
               style={{ display: "flex", justifyContent: "space-between" }}
             >
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Visa application sataus:</label>
                   <input
@@ -489,7 +489,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Name:</label>
                   <input
@@ -500,7 +500,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">
                     Date of your application status is:
@@ -513,7 +513,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Surname:</label>
                   <input
@@ -524,7 +524,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Reference number:</label>
                   <input
@@ -535,7 +535,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Birth Date:</label>
                   <input
@@ -548,7 +548,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Passport country:</label>
                   <input
@@ -559,7 +559,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Visa type:</label>
                   <input
@@ -570,7 +570,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Passport type:</label>
                   <input
@@ -582,7 +582,7 @@ const CheckStatus = () => {
                 </div>
               </Grid>
 
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Visa duration:</label>
                   <input
@@ -593,7 +593,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Passport number:</label>
                   <input
@@ -604,7 +604,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Entry times:</label>
                   <input
@@ -615,7 +615,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Issue date of passport:</label>
                   <input
@@ -626,7 +626,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Visa validity period:</label>
                   <input
@@ -643,7 +643,7 @@ const CheckStatus = () => {
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={5.5}>
+              <Grid item xs={6} md={5.5}>
                 <div className="form-group">
                   <label className="form-label">Issue date of passport:</label>
                   <input
