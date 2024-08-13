@@ -301,8 +301,37 @@ const CheckStatus = () => {
       (1000 * 60 * 60 * 24)
   );
 
+  console.log(applicationData);
+  
+
   return (
     <div className="container" style={{ width: "90%" }}>
+      {applicationData !== null ? "" : (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div className="informBox_5566">
+          <h5 className="mb-1 mt-3" style={{ color: "white" }}>
+          Information Box
+          </h5>
+          <p className="mb-4" style={{ color: "white" }}>
+            {!showVerificationCodeForm && applicationData === null ? (
+              <>
+                In order to check the status of your application or continue an
+                unfinished application, please enter your application reference
+                number in the relevant box. If you do not know this number, you
+                can find it in the e-mail message that we sent to you. It is an
+                8-symbol alphanumeric code.
+              </>
+            ) : !showForm && applicationData === null ?  (
+              <>
+                In order to verify your application status, please enter the
+                verification code that we have sent to your email. The code is a
+                6-digit numeric value. If you did not receive the code, please
+                check your spam folder or request a new code.
+              </>
+             ) : applicationData !== null ? "" : ""}
+          </p>
+        </div>
+      </div> )}
       {/* Conditionally render the form */}
       <br />
       <br />
